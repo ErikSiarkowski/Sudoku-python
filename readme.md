@@ -8,11 +8,11 @@ Este é um jogo de Sudoku simples implementado em Python utilizando a biblioteca
 
 ## Funcionalidades
 
-[x] Interface gráfica com Pygame para uma experiência interativa de Sudoku.
-[x] Gerador de quebra-cabeças aleatórios para jogabilidade infinita.
-[x] Interface fácil de usar para inserir números e navegar na grade.
-[ ] Cronômetro para acompanhar quanto tempo leva para resolver cada quebra-cabeça.
-[ ] Opção para verificar a solução atual em busca de erros.
+- [x] Interface gráfica com Pygame para uma experiência interativa de Sudoku.
+- [x] Gerador de quebra-cabeças aleatórios para jogabilidade infinita.
+- [x] Interface fácil de usar para inserir números e navegar na grade.
+- [ ] Cronômetro para acompanhar quanto tempo leva para resolver cada quebra-cabeça.
+- [ ] Opção para verificar a solução atual em busca de erros.
 
 ## Como Jogar
 
