@@ -68,6 +68,36 @@ def Tabuleiro_Hover(window, mouse_position_x, mouse_position_y):
     if x >= 0 and x <= 8 and y >= 0 and y <= 8:
         pg.draw.rect(window, azul_claro, ((ajuste + x * quadrado, ajuste + y * quadrado, quadrado, quadrado)))
 
+def NumerosFaltam(window,faltantes):
+    renderizacoes = []
+    subrenderizacoes = []
+    for numero in range(1, 10):
+        palavra = fonte2.render(f'{numero}', True, preto)
+        subpalavra = subtitulo.render(f'{faltantes[str(numero)]}', True, preto)
+        subrenderizacoes.append(subpalavra)
+        renderizacoes.append(palavra)
+    pos_x = 50
+    for numero in range(1, 10):
+        pg.draw.rect(window, azul, (pos_x, 670,50,60),border_radius=15)
+        pos_x += 68.75
+    pos_x = 65
+    for renderizacao in renderizacoes:
+        window.blit(renderizacao, (pos_x, 675))
+        pos_x += 68.75
+    pos_x = 70
+    for subrenderizacao in subrenderizacoes:
+        window.blit(subrenderizacao, (pos_x, 710))
+        pos_x += 68.75
+
+def contar_faltantes(jogo_data):
+    faltantes = {str(num): 9 for num in range(1, 10)}  
+    
+    for linha in jogo_data:
+        for numero in linha:
+            if numero!= 'n' and numero != 'X' and int(numero) in range(1, 10):
+                faltantes[str(numero)] -= 1
+    return faltantes
+
 def Botao_Restart(window):
     pg.draw.rect(window, azul, (700, 50, 250, 100),border_radius=15)
     palavra_f = fonte.render('Restart', True, preto)
@@ -306,6 +336,8 @@ while True:
     Tabuleiro(window)
     Botao_Restart(window)
     Botao_Preencher(window)
+    faltantes = contar_faltantes(jogo_data)
+    NumerosFaltam(window,faltantes)
     tabuleiro_data, tabuleiro_preenchido = Gabarito_do_Tabuleiro(tabuleiro_data, tabuleiro_preenchido)
     jogo_data, escondendo_numeros = Escondendo_Numeros(tabuleiro_data, jogo_data, escondendo_numeros)
     Escrevendo_Numeros(window, jogo_data)
@@ -313,6 +345,7 @@ while True:
     jogo_data, numero = Checando_Numero_Digitado(window, tabuleiro_data, jogo_data, click_position_x, click_position_y, numero)
     tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data= Click_Botao_Restart(mouse_position_x, mouse_position_y, click_last_status, click[0], tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data)
     jogo_data = Click_Botao_Preencher(mouse_position_x, mouse_position_y, click_last_status, click[0],tabuleiro_data, jogo_data)
+
     if click[0] == True:
         click_last_status = True
     else:
