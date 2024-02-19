@@ -2,11 +2,11 @@
 
 ![image](https://github.com/ErikSiarkowski/Sudoku-python/assets/87393016/ae476c71-c703-4892-8bf2-88861514c4c0)
 
-## Visão Geral
+## 📚 Visão Geral
 
 Este é um jogo de Sudoku simples implementado em Python utilizando a biblioteca Pygame. O jogo oferece uma interface gráfica para jogar Sudoku, permitindo que os usuários resolvam quebra-cabeças e verifiquem suas soluções.
 
-## Funcionalidades
+## ✅ Funcionalidades
 
 - [x] Interface gráfica com Pygame para uma experiência interativa de Sudoku.
 - [x] Gerador de quebra-cabeças aleatórios para jogabilidade infinita.
@@ -14,7 +14,7 @@ Este é um jogo de Sudoku simples implementado em Python utilizando a biblioteca
 - [ ] Cronômetro para acompanhar quanto tempo leva para resolver cada quebra-cabeça.
 - [ ] Opção para verificar a solução atual em busca de erros.
 
-## Como Jogar
+## ☕ Como Jogar
 
 1. Use o mouse para navegar na grade.
 2. Pressione uma tecla numérica (1-9) para inserir um número na célula selecionada.
@@ -22,7 +22,13 @@ Este é um jogo de Sudoku simples implementado em Python utilizando a biblioteca
 4. Pressione "Restart" para iniciar um novo jogo.
 5. Pressione "Fill" para finalizar o jogo atual.
 
-## Instalação
+## 💻 Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+- Você instalou a versão mais recente de `python3` em https://www.python.org/downloads/.
+
+## 🚀 Instalação
 
 1. Clone o repositório:
 
