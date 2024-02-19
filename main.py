@@ -12,6 +12,8 @@ azul_escuro = (66, 140, 237)
 cor_adjacente = (183, 211, 247)
 
 window = pg.display.set_mode((1000, 750))
+pg.display.set_caption('Image') 
+image = pg.image.load(fr'.\win_icon.jpg')
 pg.font.init()
 fonte = pg.font.SysFont("Courier New", 50, bold=True)
 fonte2 = pg.font.SysFont(None, 55)
@@ -308,6 +310,12 @@ def Digitando_Numero(numero):
             numero = int(numero)
     return numero  # Retorna o número convertido para inteiro
 
+def verificar_vitoria(jogo_data, tabuleiro_data):
+    if jogo_data == tabuleiro_data:
+        return True
+    else:
+        return False
+
 while True:
     for event in pg.event.get():
         if event.type == pg.QUIT:
@@ -345,6 +353,15 @@ while True:
     jogo_data, numero = Checando_Numero_Digitado(window, tabuleiro_data, jogo_data, click_position_x, click_position_y, numero)
     tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data= Click_Botao_Restart(mouse_position_x, mouse_position_y, click_last_status, click[0], tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data)
     jogo_data = Click_Botao_Preencher(mouse_position_x, mouse_position_y, click_last_status, click[0],tabuleiro_data, jogo_data)
+
+    if verificar_vitoria(jogo_data, tabuleiro_data):
+        # Se o jogador venceu, exibir tela de vitória
+        pg.draw.rect(window, branco, (50, 50,600,600))
+        fonteVitoria = pg.font.SysFont("Courier New", 50)
+        texto = fonteVitoria.render("Você venceu!", True, (51,132,194))
+        window.blit(texto, (175, 385))
+        window.blit(image,(252,200))
+
 
     if click[0] == True:
         click_last_status = True
